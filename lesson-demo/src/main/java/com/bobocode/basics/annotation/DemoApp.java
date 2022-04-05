@@ -1,4 +1,4 @@
-package com.bobocode.annotation;
+package com.bobocode.basics.annotation;
 
 public class DemoApp {
     public static void main(String[] args) {

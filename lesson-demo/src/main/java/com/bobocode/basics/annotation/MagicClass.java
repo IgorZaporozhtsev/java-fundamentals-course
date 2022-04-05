@@ -1,4 +1,4 @@
-package com.bobocode.annotation;
+package com.bobocode.basics.annotation;
 
 @Marker//("This value of current annotation")
 public class MagicClass {

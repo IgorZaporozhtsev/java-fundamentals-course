@@ -1,4 +1,4 @@
-package com.bobocode.annotation;
+package com.bobocode.basics.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
