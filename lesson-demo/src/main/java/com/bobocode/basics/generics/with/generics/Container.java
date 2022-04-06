@@ -1,4 +1,4 @@
-package com.bobocode.basics.generics.withgenerics;
+package com.bobocode.basics.generics.with.generics;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.bobocode.basics.generics.withobject;
+package com.bobocode.basics.generics.with.object;
 
 public class DemoApp {
     public static void main(String[] args) {

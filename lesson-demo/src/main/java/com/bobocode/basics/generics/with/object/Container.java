@@ -1,4 +1,4 @@
-package com.bobocode.basics.generics.withobject;
+package com.bobocode.basics.generics.with.object;
 
 import lombok.Getter;
 import lombok.Setter;
