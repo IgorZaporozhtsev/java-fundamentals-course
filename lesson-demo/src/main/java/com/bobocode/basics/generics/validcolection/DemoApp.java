@@ -22,30 +22,28 @@ public class DemoApp {
                 user4
         );
 
-        Predicate<BaseEntity> notNullIdValidationPredicate = entity -> entity.id != null;
-
-        Predicate<BaseEntity> nameValidationPredicate =  entity ->
+        Predicate<ChildEntity> nameValidationPredicate =  entity ->
                 Optional.ofNullable(entity)
-                    .map(BaseEntity::getName)
-                    .map(isJaneName())
-                    .orElse(false);
+                        .map(BaseEntity::getName)
+                        .map(isJaneName())
+                        .orElse(false);
 
-
+        Predicate<BaseEntity> notNullIdValidationPredicate = entity -> entity.id != null;
 
         boolean validAnyMatch = isValidAnyMatchCollection(users, nameValidationPredicate);
         System.out.println(validAnyMatch);
 
-        boolean validAllMatch = isValidAllMatchCollection(users, nameValidationPredicate);
+        boolean validAllMatch = isValidAllMatchCollection(users, notNullIdValidationPredicate);
         System.out.println(validAllMatch);
-
     }
 
     private static Function<String, Boolean> isJaneName() {
         return name -> name.startsWith("Jane");
     }
 
-    public static boolean isValidAnyMatchCollection(Collection< ? extends BaseEntity > entities,
-                                                    Predicate<? super BaseEntity> validationPredicate){
+    public static boolean isValidAnyMatchCollection(Collection<? extends ChildEntity> entities,
+                                                    Predicate<? super ChildEntity> validationPredicate){
+        //entities.add(new ChildEntity()); // - не работает так
         return entities.stream().anyMatch(validationPredicate);
     }
 
