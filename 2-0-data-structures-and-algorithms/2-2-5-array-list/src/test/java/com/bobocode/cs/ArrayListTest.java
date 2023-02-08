@@ -25,6 +25,9 @@ class ArrayListTest {
 
     private List<Integer> arrayList = new ArrayList<>();
 
+    ArrayListTest() throws IllegalAccessException {
+    }
+
     @Test
     @Order(1)
     void add() {
@@ -93,7 +96,7 @@ class ArrayListTest {
 
     @Test
     @Order(9)
-    void createListWithSpecificArrayCapacity() {
+    void createListWithSpecificArrayCapacity() throws IllegalAccessException {
         arrayList = new ArrayList<>(8);
         assertThat(getTestArray().length).isEqualTo(8);
     }
@@ -107,7 +110,7 @@ class ArrayListTest {
 
     @Test
     @Order(11)
-    void addElements() {
+    void addElements() throws IllegalAccessException {
         arrayList = ArrayList.of(15, 69, 58, 78);
 
         assertThat(getTestArray()[0]).isEqualTo(15);
@@ -119,7 +122,7 @@ class ArrayListTest {
 
     @Test
     @Order(12)
-    void addShouldResizeDefaultCapacityWhenArrayIsFull() {
+    void addShouldResizeDefaultCapacityWhenArrayIsFull() throws IllegalAccessException {
         arrayList = new ArrayList<>();
         int defaultCapacity = getTestArray().length;
 
@@ -137,7 +140,7 @@ class ArrayListTest {
 
     @Test
     @Order(13)
-    void addShouldResizeSpecificCapacityWhenArrayIsFull() {
+    void addShouldResizeSpecificCapacityWhenArrayIsFull() throws IllegalAccessException {
         arrayList = new ArrayList<>(4);
 
         arrayList.add(15);
