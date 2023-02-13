@@ -67,7 +67,13 @@ public class LinkedStack<T> implements Stack<T> {
      */
     @Override
     public void push(T element) {
-        throw new ExerciseNotCompletedException(); // todo: implement this method
+        if (element == null) throw new NullPointerException();
+        if (head == null) head = new Node<>(element);
+
+        Node<T> tNode = new Node<>(element);
+        tNode.next = head;
+        head = tNode;
+        size++;
     }
 
     /**
@@ -79,7 +85,11 @@ public class LinkedStack<T> implements Stack<T> {
      */
     @Override
     public T pop() {
-        throw new ExerciseNotCompletedException(); // todo: implement this method
+        if (head == null) throw new EmptyStackException();
+        T value = head.value;
+        head = head.next;
+        size--;
+        return value;
     }
 
     /**
@@ -105,6 +115,12 @@ public class LinkedStack<T> implements Stack<T> {
     private static class Node<T> {
         Node<T> next;
         T value;
+
+        Node(){
+        }
+        Node(T value){
+            this.value = value;
+        }
 
         @Override
         public String toString() {
