@@ -4,6 +4,7 @@ import com.bobocode.cs.exception.EmptyStackException;
 import com.bobocode.util.ExerciseNotCompletedException;
 
 import java.util.Objects;
+import java.util.stream.Stream;
 
 /**
  * {@link LinkedStack} is a stack implementation that is based on singly linked generic nodes.
@@ -30,7 +31,7 @@ public class LinkedStack<T> implements Stack<T> {
      */
     public static <T> LinkedStack<T> of(T... elements) {
         var tLinkedStack = new LinkedStack<T>();
-        Node<T> oldNode = null;
+        /*Node<T> oldNode = null;
         Node<T> head = null;
 
         for (T elem : elements) {
@@ -55,7 +56,9 @@ public class LinkedStack<T> implements Stack<T> {
 
             tLinkedStack.size++;
         }
-        tLinkedStack.head = head;
+        tLinkedStack.head = head;*/
+
+        Stream.of(elements).forEach(tLinkedStack::push);
         return tLinkedStack;
     }
 
